@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abcMuse</title>
+
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'abcMuse/img/Butterfly.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'abcMuse/css/styleHomePage.css' %}"/>
+
+</head>
+
+<body>
+<h1>Welcome to mini-game abcMuse!</h1>
+<p>my paragraph</p>
+
+<form action="play/" method="get">
+    <div class="slidecontainer">
+        <p>Choose the number of consonants: <span id="cons" name="cons"></span></p>
+        <input class="slider" id="consonants" name = "consonants" max="30" min="1" type="range" value={{cntCons}}>
+    </div>
+
+<script>
+var slider1 = document.getElementById("consonants");
+var output1 = document.getElementById("cons");
+var result1 = document.getElementById('hiddenC');
+output1.innerHTML = slider1.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+}
+</script>
+
+    <div class="slidecontainer2">
+        <p>Choose the number of vowels: <span id="vowe"></span></p>
+        <input class="slider" id="vowels" name="vowels" max="30" min="1" type="range" value={{cntVowe}}>
+    </div>
+
+<script>
+var slider2 = document.getElementById("vowels");
+var output2 = document.getElementById("vowe");
+output2.innerHTML = slider2.value;
+
+slider2.oninput = function() {
+  output2.innerHTML = this.value;
+}
+</script>
+
+
+    <input type="submit" value="OK">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayingField</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'abcMuse/img/Butterfly.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'abcMuse/css/stylePlayingField.css' %}"/>
+
+    <script type = "text/javascript" >
+    function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
+    </script>
+</head>
+<body>
+<br>
+{% for message in messages %}
+    <div id="dialog" title="Error">
+        <p>Please, enter valid text!</p>
+        <p>Use only letters and spaces</p>
+    </div>
+    <script>
+        $( function() {
+            $( "#dialog" ).dialog();
+        });
+    </script>
+{% endfor %}
+
+<table border="1" bgcolor="pink">
+
+    <tr>
+        {% if B == 0 %} <td bgcolor="#FAFA05">B: {{B}}</td>
+        {% else %} <td bgcolor="#10FA05">B: {{B}}</td>
+        {% endif %}
+
+        {% if C == 0 %} <td bgcolor="#FAFA05">C: {{C}}</td>
+        {% else %} <td bgcolor="#10FA05">C: {{C}}</td>
+        {% endif %}
+
+        {% if D == 0 %} <td bgcolor="#FAFA05">D: {{D}}</td>
+        {% else %} <td bgcolor="#10FA05">D: {{D}}</td>
+        {% endif %}
+
+        {% if F == 0 %} <td bgcolor="#FAFA05">F: {{F}}</td>
+        {% else %} <td bgcolor="#10FA05">F: {{F}}</td>
+        {% endif %}
+
+        {% if G == 0 %} <td bgcolor="#FAFA05">G: {{G}}</td>
+        {% else %} <td bgcolor="#10FA05">G: {{G}}</td>
+        {% endif %}
+
+        {% if H == 0 %} <td bgcolor="#FAFA05">H: {{H}}</td>
+        {% else %} <td bgcolor="#10FA05">H: {{H}}</td>
+        {% endif %}
+
+        {% if J == 0 %} <td bgcolor="#FAFA05">J: {{J}}</td>
+        {% else %} <td bgcolor="#10FA05">J: {{J}}</td>
+        {% endif %}
+    </tr>
+
+    <tr>
+        {% if K == 0 %} <td bgcolor="#FAFA05">K: {{K}}</td>
+        {% else %} <td bgcolor="#10FA05">K: {{K}}</td>
+        {% endif %}
+
+        {% if L == 0 %} <td bgcolor="#FAFA05">L: {{L}}</td>
+        {% else %} <td bgcolor="#10FA05">L: {{L}}</td>
+        {% endif %}
+
+        {% if M == 0 %} <td bgcolor="#FAFA05">M: {{M}}</td>
+        {% else %} <td bgcolor="#10FA05">M: {{M}}</td>
+        {% endif %}
+
+        {% if N == 0 %} <td bgcolor="#FAFA05">N: {{N}}</td>
+        {% else %} <td bgcolor="#10FA05">N: {{N}}</td>
+        {% endif %}
+
+        {% if P == 0 %} <td bgcolor="#FAFA05">P: {{P}}</td>
+        {% else %} <td bgcolor="#10FA05">P: {{P}}</td>
+        {% endif %}
+
+        {% if Q == 0 %} <td bgcolor="#FAFA05">Q: {{Q}}</td>
+        {% else %} <td bgcolor="#10FA05">Q: {{Q}}</td>
+        {% endif %}
+
+        {% if R == 0 %} <td bgcolor="#FAFA05">R: {{R}}</td>
+        {% else %} <td bgcolor="#10FA05">R: {{R}}</td>
+        {% endif %}
+    </tr>
+
+    <tr>
+        {% if S == 0 %} <td bgcolor="#FAFA05">S: {{S}}</td>
+        {% else %} <td bgcolor="#10FA05">S: {{S}}</td>
+        {% endif %}
+
+        {% if T == 0 %} <td bgcolor="#FAFA05">T: {{T}}</td>
+        {% else %} <td bgcolor="#10FA05">T: {{T}}</td>
+        {% endif %}
+
+        {% if V == 0 %} <td bgcolor="#FAFA05">V: {{V}}</td>
+        {% else %} <td bgcolor="#10FA05">V: {{V}}</td>
+        {% endif %}
+
+        {% if W == 0 %} <td bgcolor="#FAFA05">W: {{W}}</td>
+        {% else %} <td bgcolor="#10FA05">W: {{W}}</td>
+        {% endif %}
+
+        {% if X == 0 %} <td bgcolor="#FAFA05">X: {{X}}</td>
+        {% else %} <td bgcolor="#10FA05">X: {{X}}</td>
+        {% endif %}
+
+        {% if Y == 0 %} <td bgcolor="#FAFA05">Y: {{Y}}</td>
+        {% else %} <td bgcolor="#10FA05">Y: {{Y}}</td>
+        {% endif %}
+
+        {% if Z == 0 %} <td bgcolor="#FAFA05">Z: {{Z}}</td>
+        {% else %} <td bgcolor="#10FA05">Z: {{Z}}</td>
+        {% endif %}
+    </tr>
+</table>
+<br>
+<table border="1" bgcolor="pink">
+    <tr>
+        {% if A == 0 %} <td bgcolor="#FAFA05">A: {{A}}</td>
+        {% else %} <td bgcolor="#10FA05">A: {{A}}</td>
+        {% endif %}
+
+        {% if E == 0 %} <td bgcolor="#FAFA05">E: {{E}}</td>
+        {% else %} <td bgcolor="#10FA05">E: {{E}}</td>
+        {% endif %}
+
+        {% if I == 0 %} <td bgcolor="#FAFA05">I: {{I}}</td>
+        {% else %} <td bgcolor="#10FA05">I: {{I}}</td>
+        {% endif %}
+
+        {% if O == 0 %} <td bgcolor="#FAFA05">O: {{O}}</td>
+        {% else %} <td bgcolor="#10FA05">O: {{O}}</td>
+        {% endif %}
+
+        {% if U == 0 %} <td bgcolor="#FAFA05">U: {{U}}</td>
+        {% else %} <td bgcolor="#10FA05">U: {{U}}</td>
+        {% endif %}
+    </tr>
+</table>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="words">Enter your words here (separate by a space, no punctuation marks)</label> <br>
+    <input id="words" type="text" name="words" maxlength="200">
+    <input id="alphaCons" type="hidden" name="alphaCons" value="{{B}} {{C}} {{D}} {{F}} {{G}} {{H}} {{J}} {{K}} {{L}} {{M}} {{N}} {{P}} {{Q}} {{R}} {{S}} {{T}} {{V}} {{W}} {{X}} {{Y}} {{Z}}">
+    <input id="alphaVowe" type="hidden" name="alphaVowe" value="{{A}} {{E}} {{I}} {{O}} {{U}}">
+    <input id="score" type="hidden" name="score" value="{{score}}">
+    <input id="recognised" type="hidden" name="recognised" value="{{recognised}}">
+    <input type="submit" value="OK">
+</form>
+<br>
+<h3>Your current score is: {{score}}</h3>
+<h3>Recognised words: {{recognised}}</h3>
+<h3>Lines from "Hamlet" with your words:</h3>
+{% for line in lines %}
+    <p>{{line}}</p>
+{% endfor %}
+
+<form action="{% url 'home-page' %}">
+    <input type="submit"  value="To the main page">
+</form>
+
+</body>
+</html>
