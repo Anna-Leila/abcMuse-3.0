@@ -69,7 +69,7 @@ def playingField(request):  # view for playing field
         # get string of recognised words
         recognised = request.POST.get('recognised')
 
-        lines = []  # initially there are no lines from "Hamlet" with player's words
+        line = "no line has been found"  # initially there are no lines from "Hamlet" with player's words
 
         # convert string array to array for both c and v
         c = [int(elem) for elem in alphaCons.split()]
@@ -81,6 +81,7 @@ def playingField(request):  # view for playing field
             text = form.cleaned_data['words']
             text = text.lower()  # cast to lowercase
             words = text.split()  # split text into separate words
+            wordsNumber = words.__len__()
 
             allWords = request.session.get('allWords', [])  # get list of all valid words, [] - default
             if not allWords:  # if default - than the file isn't open yet
@@ -95,7 +96,8 @@ def playingField(request):  # view for playing field
             request.session['count'] = [0 for _ in range(length)]
             for word in words:  # check each word
                 if word in allWords:  # if it is valid
-                    check(word, request)  # check "Hamlet" for this word
+                    if wordsNumber > 1:  # if the players entered more than one word
+                        check(word, request)  # check "Hamlet" for this word
                     if recognised == "":  # if it's the first word
                         recognised += word  # just add
                     else:  # otherwise
@@ -103,10 +105,19 @@ def playingField(request):  # view for playing field
                     score = adjust(word, c, v, score, request)  # update score
             count = request.session.get('count')
             hamlet = request.session.get('Hamlet')
-            # save only strings with the number of used words in them > 1
-            for i in range(length):
-                if count[i] > 1:
-                    lines.append(hamlet[i])
+
+            if score <= 0:  # set line value if score isn't positive
+                line = "your score isn't positive!"
+            if wordsNumber < 2:  # set line value if one or no words at all have been entered
+                line = "not enough words were entered"
+
+            # find a string with maximum number of words in it
+            maximum = max(count)
+            if score > 0 and maximum > 1:  # (only if score is positive and
+                # there is at least one line with at least two player's words in it)
+                for i in range(length):
+                    if count[i] == maximum:
+                        line = hamlet[i]
 
         else:  # otherwise - if input isn't valid
             messages.error(request, 'Error')  # set error message
@@ -118,10 +129,10 @@ def playingField(request):  # view for playing field
                                                              'V': c[16], 'W': c[17], 'X': c[18], 'Y': c[19],
                                                              'Z': c[20], 'A': v[0], 'E': v[1], 'I': v[2],
                                                              'O': v[3], 'U': v[4], 'score': score,
-                                                             'recognised': recognised, 'lines': lines})
+                                                             'recognised': recognised, 'line': line})
 
 
-def openWordFiles(request):  # open file with valid words and save them
+def openWordFiles(request):  # open file with valid words, open file with "Hamlet" tragedy, save info
     f = open('abcMuse/templates/abcMuse/popular_words.txt', 'r')
     request.session['allWords'] = f.read().split()
 

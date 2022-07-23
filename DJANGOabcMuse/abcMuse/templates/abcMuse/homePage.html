@@ -1,26 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>abcMuse</title>
 
     {% load static %}
-    <link rel="shortcut icon" href="{% static 'abcMuse/img/Butterfly.ico' %}"/>
-    <link rel="stylesheet" href="{% static 'abcMuse/css/styleHomePage.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'abcMuse/img/Butterfly.ico' %}"/> <!-- icon -->
+    <link rel="stylesheet" href="{% static 'abcMuse/css/styleHomePage.css' %}"/> <!-- css style sheet -->
 
 </head>
 
 <body>
-<h1>Welcome to mini-game abcMuse!</h1>
-<p>my paragraph</p>
+    <!-- welcoming sign and rules of the game -->
+    <h1>Welcome to demo version of mini-game abcMuse!</h1>
+    <p>Rules:</p>
+    <p>You should choose the total number of vowels and consonants.
+        The program will show the amount of each individual letter.
+        You have to think of as many words with available letters as you can.
+        Each one letter will raise your score by 1. If You use a letter with
+        zero amount, your score will reduce by 1. Try to get highest
+        core possible.
+    </p> <br>
+    <p>
+        If You enter several words at a time and your score is positive,
+        the program will search for these words in “Hamlet” play by William
+        Shakespeare. It will show you the line with maximum number of words
+        in it, if this number is more than one.
+    </p>
+    <p>
+        This funny word game will cheer You up and become a mental gymnastics.
+        Don’t forget to tell your friends about it! Good luck!
+    </p> <br>
 
-<form action="play/" method="get">
+<form action="play/" method="get"> <!-- first slider -->
     <div class="slidecontainer">
         <p>Choose the number of consonants: <span id="cons" name="cons"></span></p>
         <input class="slider" id="consonants" name = "consonants" max="30" min="1" type="range" value={{cntCons}}>
     </div>
 
+    <!-- listener for the first slider -->
 <script>
 var slider1 = document.getElementById("consonants");
 var output1 = document.getElementById("cons");
@@ -32,11 +51,12 @@ slider1.oninput = function() {
 }
 </script>
 
-    <div class="slidecontainer2">
+    <div class="slidecontainer2"> <!-- second slider -->
         <p>Choose the number of vowels: <span id="vowe"></span></p>
         <input class="slider" id="vowels" name="vowels" max="30" min="1" type="range" value={{cntVowe}}>
     </div>
 
+    <!-- listener for the second slider -->
 <script>
 var slider2 = document.getElementById("vowels");
 var output2 = document.getElementById("vowe");
@@ -48,9 +68,13 @@ slider2.oninput = function() {
 </script>
 
 
-    <input type="submit" value="OK">
+    <input type="submit" value="OK"> <!-- submit button -->
 </form>
 
+    <p>The author is planning to modify the program for many users and multiple languages</p>
+    <p>You can help the project: <a href="https://www.paypal.com/paypalme/VZoikin">https://www.paypal.com/paypalme/VZoikin</a></p>
+    <p>Your questions and suggestions are welcome: <a href="mailto:annzoykina@gmail.com">annzoykina@gmail.com</a></p>
+    <br>
 
 </body>
 </html>

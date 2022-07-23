@@ -13,7 +13,9 @@
     <link rel="shortcut icon" href="{% static 'abcMuse/img/Butterfly.ico' %}"/>
     <link rel="stylesheet" href="{% static 'abcMuse/css/stylePlayingField.css' %}"/>
 
-    <script type = "text/javascript" >
+    <!-- prevent user form going back after the first submit inside playing field
+    The user can only go forward, or end current game -->
+    <script type = "text/javascript">
     function preventBack(){window.history.forward();}
     setTimeout("preventBack()", 0);
     window.onunload=function(){null};
@@ -21,6 +23,7 @@
 </head>
 <body>
 <br>
+<!-- if there is an error message it'll be in messages - so run over all messages and show error dialog -->
 {% for message in messages %}
     <div id="dialog" title="Error">
         <p>Please, enter valid text!</p>
@@ -33,6 +36,8 @@
     </script>
 {% endfor %}
 
+<!-- table with consonants and their amount -->
+<!-- when amount is more than zero - table cell is green, otherwise it's yellow -->
 <table border="1" bgcolor="pink">
 
     <tr>
@@ -126,6 +131,9 @@
     </tr>
 </table>
 <br>
+
+<!-- table with vowels and their amount -->
+<!-- when amount is more than zero - table cell is green, otherwise it's yellow -->
 <table border="1" bgcolor="pink">
     <tr>
         {% if A == 0 %} <td bgcolor="#FAFA05">A: {{A}}</td>
@@ -150,6 +158,8 @@
     </tr>
 </table>
 <br>
+
+<!-- form with input and hidden information:arrays for consonants and vowels, score, string with recognised words -->
 <form action="" method="post">
     {% csrf_token %}
     <label for="words">Enter your words here (separate by a space, no punctuation marks)</label> <br>
@@ -161,13 +171,17 @@
     <input type="submit" value="OK">
 </form>
 <br>
-<h3>Your current score is: {{score}}</h3>
-<h3>Recognised words: {{recognised}}</h3>
-<h3>Lines from "Hamlet" with your words:</h3>
-{% for line in lines %}
-    <p>{{line}}</p>
-{% endfor %}
 
+<!-- output -->
+<div class="a">
+<h4>Your current score is: {{score}}</h4>
+<h4>Recognised words: {{recognised}}</h4>
+<h4>Line from "Hamlet" with your words:</h4>
+<p>{{line}}</p>
+</div>
+
+
+<!-- button back to the home page -->
 <form action="{% url 'home-page' %}">
     <input type="submit"  value="To the main page">
 </form>

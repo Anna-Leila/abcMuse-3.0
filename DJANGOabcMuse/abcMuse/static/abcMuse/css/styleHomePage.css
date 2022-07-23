@@ -1,11 +1,19 @@
 * {box-sizing: border-box;}
 
 body {
+    height: 100%;
     font-family: 'Lato', arial, sans-serif;
     line-height: 1.5;
     font-weight: 300;
     color: #912F0D;
+
     background-color: rgba(255, 235, 205, .5);
+
+    background: url("/static/abcMuse/img/gif_final_no_repeat.gif") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:cover;
 }
 
 :root {
@@ -61,9 +69,15 @@ input[type=button], input[type=submit], input[type=reset] {
   border: none;
   color: white;
   font-size: 1em;
-  padding: 16px 32px;
+  padding: 14px 28px;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px
+}
+
+p {
+  line-height: 1.2;
+  margin-top: 0.5em ;
+  margin-bottom: 0.1em ;
 }
