@@ -69,7 +69,7 @@ def playingField(request):  # view for playing field
         # get string of recognised words
         recognised = request.POST.get('recognised')
 
-        line = "no line has been found"  # initially there are no lines from "Hamlet" with player's words
+        line = ""  # initially there are no lines from "Hamlet" with player's words
 
         # convert string array to array for both c and v
         c = [int(elem) for elem in alphaCons.split()]
@@ -106,6 +106,7 @@ def playingField(request):  # view for playing field
             count = request.session.get('count')
             hamlet = request.session.get('Hamlet')
 
+            line = "no line has been found"  # set line value to default
             if score <= 0:  # set line value if score isn't positive
                 line = "your score isn't positive!"
             if wordsNumber < 2:  # set line value if one or no words at all have been entered
