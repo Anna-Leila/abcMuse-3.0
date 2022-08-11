@@ -1,2 +1,2 @@
 # abcMuse-3.0
-Code of the website https://abcmuse.pythonanywhere.com
+Link to the website: https://abcmuse.pythonanywhere.com
